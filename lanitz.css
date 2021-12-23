@@ -1,0 +1,75 @@
+body{
+    background-image: url(./img/background2.png);
+    margin:0;
+}
+/* Index css */
+            /* header */
+.headerStyle{
+    background-color:#660101;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btnStyle{
+    padding:8px;
+    background-color:#0A0D0D ;
+    margin-left: 40px;
+    color: white;
+    border-radius: 8px;
+}
+.placementSlogan{
+    margin-left: 10%;
+}
+.slogan{
+    color: white;
+    font-size: 25px;
+}
+.placementBtn{
+    margin-right: 10%;
+}
+            /* Fin Header */
+
+            /* Main */
+.placementH1{
+    display: flex;
+    justify-content: center;
+}
+
+
+.titreAcceuil{
+    color: white;
+    text-decoration: underline;
+    margin-top: 5%;
+}
+.placementH2{
+    margin-top: 5%;
+    margin-left: 10%;
+}
+.présentationTitre{
+    color: white;
+    text-decoration: underline;
+}
+.placementH3{
+    margin-top: 5%;
+}
+.présentation{
+    color: white;
+    font-size: 18px;
+}
+            /* Fin Main */
+/* Fin Index css */
+
+/* Connection */
+.titreInscription{
+    color: white;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+.placementInscription{
+    margin-top: 5%;
+}
+.labelStyle{
+    color: white;
+}
