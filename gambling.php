@@ -22,6 +22,9 @@
             
         </ul>
             <ul class="list">
+
+            
+            <!--            
                 <li><img src="./img/awp.png"alt=""></li>
                 <li><img src="./img/m4.png" alt=""></li>
                 <li><img src="./img/p250.png" alt=""></li>
@@ -30,7 +33,8 @@
                 <li><img src="./img/deagle.png" alt=""></li>
                 <li><img src="./img/ak.png" alt=""></li>
                 <li><img src="./img/dragonLore.png" alt=""></li>
-                <li><img src="./img/knife2.png" alt=""></li>
+                <li><img src="./img/knife2.png" alt=""></li> 
+            -->
             </ul>
              
         </div>
