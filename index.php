@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="lanitz.css">
     <title>Acceuil</title>
 </head>
-<body>
+<body class="bodyIndex">
     <header class="headerStyle">
         <div class="placementSlogan">
-            <p class="slogan">Keep Cool Keep Lanitz</p>
+            <p class="slogan1">Keep Cool Keep Lanitz</p>
         </div>
         <div class="placementBtn">
             <a href="inscription.php"><button class="btnStyle">Sign In</button></a>
             <a href="connection.php"><button class="btnStyle">Log In</button></a>
         </div>
     </header>
-    <main>
+    <main class="indexMain">
         <div class="placementH1">
             <h1 class="titreAcceuil">Bienvenue sur le site de la team Lanitz</h1>
         </div>

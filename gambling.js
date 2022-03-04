@@ -14,7 +14,7 @@ $(document).ready(function () {
         }
         var x = selfRandom(50, 100);
         $('.list li:eq('+x+')').css({
-            border:'4px solid #0000'
+            border:'4px solid #0683'
         })
         $('.window').animate({
             right: ((x*130)+(x*8-12)-119)

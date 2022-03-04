@@ -15,7 +15,7 @@ if(isset($_POST['valider']))
             if($pseudo_saisi == $pseudo_par_defaut AND $mdp_saisi = $mdp_par_defaut AND $email_saisi = $email_par_defaut)
             {
                 $_SESSION['mdp'] = $mdr_saisi;
-                header('Location: index.php');
+                header('Location: accueil.php');
             }
             else
             {
@@ -37,42 +37,47 @@ if(isset($_POST['valider']))
     <link rel="stylesheet" href="lanitz.css">
     <title>connection</title>
 </head>
-<body>
+<body class="bodyConnect">
     <div class="titreInscription">
         <h1>Connectez vous ici :</h1>
     </div>
-    <div class="placementInscription" >
+     <div class="ALEd">  
+        <div class="placementInscription" >
 
-        <form method="POST" action="" class="formStyle" >
-            <table align="center">
-                <tr>
-                    <td align="right">
-                        <label for="pseudo" class="labelStyle">Pseudonyme :</label>
-                        <input type="text" id="pseudo" name="pseudo" autocomplete="off">
-                            <br><br>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right">
-                        <label for="email"  class="labelStyle">Email :</label>
-                        <input type="text" id="email" name="email" autocomplete="off">
-                            <br><br>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right">
-                        <label for="mdp" class="labelStyle">Mot de passe :</label>
-                        <input type="password" id="mdp" name="mdp">
-                            <br><br>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center">
-                        <input type="submit" name="valider" >
-                    </td>
-                </tr>
-            </table>
-        </form>
+            <form method="POST" action="" class="formStyle" >
+                <table  align="center">
+                    <tr>
+                        <td >
+                            <label for="pseudo" class="labelStyle">Pseudonyme :</label>
+                            <input class="outline" type="text" id="pseudo" name="pseudo" autocomplete="off">
+                                <br><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="email"  class="labelStyle">Email :</label>
+                            <input class="outline" type="text" id="email" name="email" autocomplete="off">
+                                <br><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <label for="mdp" class="labelStyle">Mot de passe :</label>
+                            <input class="outline" type="password" id="mdp" name="mdp">
+                                <br><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="btnStyle2">
+                            <input id="btn" type="submit" name="valider" >
+                        </td>
+                    </tr>
+                </table>
+            </form> 
+        </div>
+    </div>
+    <div class="slogan">
+       <img id="sloganStyle" src="./img/slogan.png" >
     </div>
 </body>
 </html>
