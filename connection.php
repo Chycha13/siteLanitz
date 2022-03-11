@@ -1,32 +1,24 @@
 <?php
 session_start();
-if(isset($_POST['valider']))
-{
-    if(!empty($_POST['pseudo']) AND !empty($_POST['mdp']) AND !empty($_POST['email']))
-    {
-        $pseudo_par_defaut = "NqnS";
-        $mdp_par_defaut = "220860";
-        $email_par_defaut = "nqns@hotmail.fr";
+require_once "config/bdd.php";
 
-        $pseudo_saisi = htmlspecialchars($_POST['pseudo']);
-        $mdr_saisi = htmlspecialchars($_POST['mdp']);
-        $email_saisi = htmlspecialchars($_POST['email']);
-        
-            if($pseudo_saisi == $pseudo_par_defaut AND $mdp_saisi = $mdp_par_defaut AND $email_saisi = $email_par_defaut)
-            {
-                $_SESSION['mdp'] = $mdr_saisi;
-                header('Location: accueil.php');
-            }
-            else
-            {
-                echo "Mot de passe incorrect";
-            }
-        }
-    else
+    if(isset($_POST['mail_user']) && isset($_POST['mdp_user']))
     {
-        echo "veuillez compléter tous les champs";
+
+            $mail = htmlspecialchars($_POST['mail_user']);
+            $mdp = htmlspecialchars($_POST['mdp_user']);
+
+    // Vérifie que tout les champs soit rempli
+        if(!empty($mail) && !empty($mdp)) {
+
+      // préparation de la vérification SQL
+
+        $select = $bdd->prepare("SELECT * FROM users WHERE mail_user = ?");
+        $select->execute(([$mail]));
+
+        $data = $select->fetch();
     }
-}
+}         
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,8 +30,10 @@ if(isset($_POST['valider']))
     <title>connection</title>
 </head>
 <body class="bodyConnect">
+   
     <div class="titreInscription">
-        <h1>Connectez vous ici :</h1>
+        <h1 class="titreCo">Connectez vous ici :</h1>
+        <a href="./index.php"> <button class="btnRetour"> Retour </button> </a>
     </div>
      <div class="ALEd">  
         <div class="placementInscription" >
@@ -48,25 +42,19 @@ if(isset($_POST['valider']))
                 <table  align="center">
                     <tr>
                         <td >
-                            <label for="pseudo" class="labelStyle">Pseudonyme :</label>
-                            <input class="outline" type="text" id="pseudo" name="pseudo" autocomplete="off">
-                                <br><br>
+                            <label for="mail" class="labelStyle">Email :</label>
+                            <input class="outline" type="text" id="mail" name="mail_user" autocomplete="off">
+                            <br><br>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label for="email"  class="labelStyle">Email :</label>
-                            <input class="outline" type="text" id="email" name="email" autocomplete="off">
-                                <br><br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
                             <label for="mdp" class="labelStyle">Mot de passe :</label>
-                            <input class="outline" type="password" id="mdp" name="mdp">
+                            <input class="outline" type="password" id="mdp" name="mdp_user" autocomplete="off">
                                 <br><br>
                         </td>
                     </tr>
+                    
                     <tr>
                         <td class="btnStyle2">
                             <input id="btn" type="submit" name="valider" >
