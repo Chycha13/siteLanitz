@@ -1,44 +1,5 @@
 <?php
-session_start();
 require_once "config/bdd.php";
-
-    if(isset($_POST['mail_user']) && isset($_POST['mdp_user'])){
-
-            $mail = htmlspecialchars($_POST['mail_user']);
-            $mdp = htmlspecialchars($_POST['mdp_user']);
-
-    // Vérifie que tout les champs soit rempli
-        if(!empty($mail) && !empty($mdp)) {
-
-      // préparation de la vérification SQL
-
-        $select = $bdd->prepare("SELECT * FROM users WHERE mail_user = ?");
-        $select->execute(([$mail]));
-        $data = $select->fetch();
-            
-            if($data != false){
-                    if(password_verify($mdp, $data['mdp'])){
-                        $_SESSION['role'] === $data['role'];
-                        
-                        if($data['role'] === "admin"){
-                            header("Location: admin.php");
-
-                            }else if ($data['role'] === "user"){                          
-                                header("Location: accueil.php");
-                            }
-                    }else{
-                        $erreur = "mdp ou nom incorrect";
-                        header("Location: inscription.php?error=$erreur");
-                        }
-            }else{
-                $erreur = "mdp ou nom incorrect";
-                header("Location: connection.php?error=$erreur");
-            }
-    }else{
-        $erreur= "veuillez remplir les champs";
-        header("Location: connection.php?error=$erreur");
-    }
-}         
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +8,7 @@ require_once "config/bdd.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="lanitz.css">
-    <title>connection</title>
+    <title>Connection</title>
 </head>
 <body class="bodyConnect">
    
@@ -58,7 +19,7 @@ require_once "config/bdd.php";
      <div class="ALEd">  
         <div class="placementInscription" >
 
-            <form method="POST" action="" class="formStyle" >
+            <form method="POST" action="./logIn.php" class="formStyle" >
                 <table  align="center">
                     <tr>
                         <td >

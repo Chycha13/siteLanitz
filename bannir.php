@@ -1,17 +1,18 @@
 <?php
-session_start();
-$bdd = new PDO('mysql:host=localhost;dbname=sitelanitz;', 'root', '');
- if(isset($_GET['id']) AND !empty($_GET['id']))
-    {
-        $getid = $_GET['id'];
-        $recupUser = $bdd->prepare('SELECT * FROM membres WHERE id = ?');
-        $recupUser->execute(array($getid));
+require_once "config/bdd.php";
+
+ if(isset($_GET['Delete']))  {
+        
+        $recupUser = $bdd->prepare('SELECT * FROM users WHERE id_user = ?');
+        $recupUser->execute(array($_GET['Delete']));
+        
+        // rowCount check if row in the table are higher to 0
         if($recupUser->rowCount() > 0)
         {
-            $bannirUser = $bdd->prepare('DELETE FROM membres WHERE id = ?');
-            $bannirUser->execute(array($getid));
+            $bannirUser = $bdd->prepare('DELETE FROM users WHERE id_user = ?');
+            $bannirUser->execute(array($_GET['Delete']));
 
-            header('Location: membre.php');
+            header('Location: admin.php');
         }
             else{
                 echo "Aucun membre n'a été trouvé";
